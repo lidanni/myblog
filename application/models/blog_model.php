@@ -8,7 +8,7 @@ class Blog_model extends CI_Model {
 
 
     public function get_by_id($blog_id){
-        $this->db->select('*');
+        $this->db->select('blog.*, admin.admin_name,admin.admin_photo');
         $this->db->from('t_blog blog');
         $this->db->join('t_admin admin','blog.author=admin.admin_id');
         $this->db->where('blog.blog_id', $blog_id);

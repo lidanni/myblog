@@ -29,7 +29,11 @@ t_comment
 		<div class="container">
 			<img src="img/single.jpg" alt="">
 
-			<p 	style="word-break:break-all;" class="blog_content">
+			<p style="word-break:break-all;" class="blog_title">
+				<?php echo $blog->title; ?>
+			</p>
+
+			<p style="word-break:break-all;" class="blog_content">
 				<?php echo $blog->content; ?>
 			</p>
 
@@ -50,12 +54,14 @@ t_comment
 				?>
 			</ul>
 
-			<p class="add" >Add Comment</p>
-			<div class="add-comment">
-				<span>*</span>
-				<textarea class="area"></textarea>
-				<p><input data-id="<?php echo $blog->blog_id;?>" class="submit" type="button" value="submit"></p>
-			</div>
+			<form action="">
+				<p class="add" >Add Comment</p>
+				<div class="add-comment">
+					<span>*</span>
+					<textarea class="area"></textarea>
+					<p><input data-id="<?php echo $blog->blog_id;?>" class="submit" type="button" value="submit"></p>
+				</div>
+			</form>
 		</div>
 	</div>
 

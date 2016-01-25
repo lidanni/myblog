@@ -4,12 +4,17 @@
 #content img{
     margin-top: 85px;
 }
+#content .blog_title{
+    font-size: 28px;
+    color: #555;
+    margin: 20px 0 8px 0;
+}
 #content .blog_content{
     width: 1140px;
     color: #555;
     font-size: 20px;
     line-height: 30px;
-    margin: 16px 0;
+    margin: 0 0 16px 0;
 }
 #content .author{
     width: 1140px;
