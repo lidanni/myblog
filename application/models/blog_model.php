@@ -3,7 +3,7 @@
 class Blog_model extends CI_Model {
 
     public function get_all(){
-        return $this -> db ->get('t_blog') -> result();
+        return $this->db->get('t_blog')->result();
     }
 
 
@@ -11,7 +11,7 @@ class Blog_model extends CI_Model {
         $this->db->select('blog.*, admin.admin_name,admin.admin_photo');
         $this->db->from('t_blog blog');
         $this->db->join('t_admin admin','blog.author=admin.admin_id');
-        $this->db->where('blog.blog_id', $blog_id);
+        $this->db->where('blog.blog_id',$blog_id);
         return $this->db->get()->row();
     }
 
@@ -38,8 +38,8 @@ class Blog_model extends CI_Model {
 
     public function get_by_page($page){
         $this->db->select('*');
-        $this->db->from('t_blog blog');//blog是别名
-        $this->db->join('t_admin admin', 'blog.author=admin.admin_id');//admin别名 关联条件
+        $this->db->from('t_blog blog');
+        $this->db->join('t_admin admin','blog.author=admin.admin_id');
         $this->db->order_by('blog.blog_id','asc');
         $this->db->limit(6, $page);
         return $this->db->get()->result();
@@ -47,13 +47,13 @@ class Blog_model extends CI_Model {
 
 
     public function get_total_count(){
-        return $this -> db -> count_all('t_blog');
+        return $this->db->count_all('t_blog');
     }
 
     public function delete_more_in($str){
-        $this->db->query("delete from t_blog where blog_id in($str)");
-//        双引号中的变量可以直接写
-//        单引号中的变量要用.拼
+        $this->db->query( " delete from t_blog where blog_id in( $str ) " );
+//      双引号中的变量可以直接写
+//      单引号中的变量要用.拼
         return $this->db->affected_rows();
     }
 

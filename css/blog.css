@@ -82,6 +82,13 @@
     cursor: pointer;
     border: 1px solid #E6E6E6;
 }
+#content .yourname{
+    margin-top: 10px;
+}
+#content .yourname input{
+    display: inline-block;
+    height: 20px;
+}
 #content .submit{
     width: 97px;
     height: 45px;

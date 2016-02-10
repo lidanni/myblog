@@ -5,6 +5,7 @@
   <title>我的主页</title>
   <base href="<?php echo site_url(); ?>">
   <link rel="stylesheet" href="css/amazeui.min.css"/>
+  <link rel="stylesheet" href="css/admin.css">
   <style>
     .header {
       text-align: center;
@@ -32,9 +33,9 @@
     <h3>管理员登录</h3>
     <hr>
     <div class="am-btn-group">
-      <a style="width: 100px; height: 37px; line-height: 20px;" href="#" class="am-btn am-btn-secondary am-btn-sm">Github</a>
-      <a style="width: 100px; height: 37px; line-height: 20px;" href="#" class="am-btn am-btn-success am-btn-sm">Google+</a>
-      <a style="width: 150px; height: 37px; line-height: 20px;" href="#" class="am-btn am-btn-primary am-btn-sm">stackOverflow</a>
+      <a href="#" class="am-btn am-btn-secondary am-btn-sm">Github</a>
+      <a href="#" class="am-btn am-btn-success am-btn-sm">Google+</a>
+      <a href="#" class="am-btn am-btn-primary am-btn-sm">stackOverflow</a>
     </div>
     <br>
     <br>

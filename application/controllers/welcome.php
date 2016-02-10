@@ -15,8 +15,8 @@ class Welcome extends CI_Controller{
 		$this->load->view('index');
 	}
 	//index页面,显示所有文章
-	public function get_blogs(){
-		$page = $this->input->get('page');//ajax传参数
+	public function get_blogs(){          //ajax传参数
+		$page = $this->input->get('page');
 		$offset = ($page-1) * 6;
 		$blogs = $this->blog_model->get_by_page($offset);
 		$totalCount = $this->blog_model->get_total_count();
@@ -25,32 +25,41 @@ class Welcome extends CI_Controller{
 					'data' => $blogs,
 					'isEnd' => ceil($totalCount/6) == $page ? true : false
 			);
+			//为什么把它变成json??????????????????????????????????????????????????????????
 			echo json_encode($res);
 		}
 	}
 
 
 	//blog页面,显示"文章"及"评论"
-	public function blog(){			//非ajax方式传参,普通方式
-		$blog_id = $this->input->get('blog_id');
+	public function blog($blog_id){
+//		$blog_id = $this->input->get('blog_id');//非ajax方式传参,普通方式?传参
 		$blog = $this->blog_model->get_by_id($blog_id);
-		$comments = $this->comment_model->get_comment_by_blogId($blog_id);
-		$data = array(
-				'comments' => $comments,
-				'blog' => $blog
-		);
-		$this->load->view('blog', $data);
+//		$comments = $this->comment_model->get_comment_by_blogId($blog_id);
+		if($blog){
+			$blog -> comments = $this->comment_model->get_comment_by_blogId($blog_id);
+			$data = array(
+//					'comments' => $comments,
+					'blog' => $blog
+			);
+			$this->load->view('blog', $data);
+		}
 	}
 
 	//blog页面,添加评论
 	public function comment(){
-		$blog_id =$this->input->get('blog_id');
-		$comment = $this->input->get('comment');
-		if($blog_id == '' || $comment == ''){
-			echo 'fail';
+		$blog_id = $this->input->post('blog_id');
+		$comment = htmlspecialchars($this->input->post('comment'));
+		$by_name = htmlspecialchars($this->input->post('by_name'));
+		if($comment!=''&&$by_name!=''){
+			$rows = $this->comment_model->save($blog_id, $comment, $by_name);
+			if($rows > 0) {
+//				调用blog方法,但是blog方法需要传参,blog_id
+//				$this->blog($blog_id);  //这种方法会出现表单重新提交
+				redirect('welcome/blog/'.$blog_id);
+			}
 		}else{
-			$this->comment_model->save($blog_id, $comment);
-			echo 'success';
+			redirect('welcome/blog/'.$blog_id);
 		}
 	}
 
@@ -67,11 +76,23 @@ class Welcome extends CI_Controller{
 		if($username == '' || $email == '' || $content == ''){
 			echo 'fail';
 		}else{
-			$this->message_model->save($username, $email, $content);
-			echo 'success';
+			$rows = $this->message_model->save($username, $email, $content);
+			if($rows > 0){
+				echo 'success';
+			}
 		}
 	}
 
+
+
+//  http://localhost/myblog_git/welcome/blog?blog_id=1 普通问号方式传参
+//  http://localhost/myblog_git/welcome/blog/1/2/3 CI方式传参
+//  1代表$xx, 2代表$yy, 3代表$zz
+//	public function aa($xx, $yy, $zz){
+//
+//	}
+
+//CI有一个特殊的语法,就是允许在调用控制器中的方法时,给这个方法传参
 
 
 }

@@ -8,7 +8,7 @@
 <header class="am-topbar admin-header">
     <div class="am-topbar-brand">
         <strong>后台管理</strong>
-        <div style="width:30px; height:15px; float:right; color:#000; font-size:15px; text-indent:10px;" class="show_user"><?php echo $admin->admin_name;?></div>
+        <div class="show_user"><?php echo $admin->admin_name;?></div>
     </div>
 
     <div class="am-collapse am-topbar-collapse" id="topbar-collapse">

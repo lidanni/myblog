@@ -3,7 +3,7 @@
 class Admin_model extends CI_Model {
 
     public function get_all(){
-        return $this -> db -> get('t_admin') -> result();
+        return $this->db->get('t_admin')->result();
     }
 
     public function get_by_name_pwd($name, $pwd){
@@ -11,20 +11,7 @@ class Admin_model extends CI_Model {
             'admin_name' => $name,
             'admin_pwd' => $pwd
         );
-        return $this -> db -> get_where('t_admin', $data) -> row();
-    }
-
-    public  function delete($admin_id){
-        $this -> db -> delete('t_admin', array('admin_id' => $admin_id));
-        return $this->db->affected_rows();
-    }
-
-    public  function save($admin_name, $admin_pwd){
-
-    }
-
-    public  function update(){
-
+        return $this->db->get_where('t_admin', $data)->row();
     }
 
 }

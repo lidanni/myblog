@@ -20,7 +20,9 @@
     <div class="admin-content">
 
         <div class="am-cf am-padding">
-            <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">文章管理</strong> / <small>blog</small></div>
+            <div class="am-fl am-cf">
+                <strong class="am-text-primary am-text-lg">文章管理</strong> / <small>blog</small>
+            </div>
         </div>
 
         <div class="am-g">
@@ -69,29 +71,6 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/amazeui.min.js"></script>
-
-<!--<script>-->
-<!--    $(function(){-->
-<!--        var $title = $('[name=title]'),-->
-<!--            $content = $('[name=content]'),-->
-<!--            $img = $('[name=img]'),-->
-<!--            $author = $('[name=author]'),-->
-<!--            $add_time = $('[name=add_time]');-->
-<!--        $.post('admin/add_blog',{-->
-<!--            title: $title.val(),-->
-<!--            content: $content.val(),-->
-<!--            img: $img.val(),-->
-<!--            author: $author.val(),-->
-<!--            add_time: $add_time.val()-->
-<!--        });-->
-<!---->
-<!---->
-<!---->
-<!---->
-<!--    });-->
-<!---->
-<!--</script>-->
-
 
 </body>
 </html>

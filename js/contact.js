@@ -27,6 +27,7 @@ require(['jquery','nav','footer'], function() {
                     });
                 } else if (res == 'success') {
                     alert('success!');
+                    concole.log('haha');
                     location.href = 'welcome/contact';
                 }
             });

@@ -49,11 +49,11 @@ require(['jquery','lightbox','nav','footer'], function($, lb) {
 					var blog = res.data[i];
 					var html = '<li>'
 							+ '<img class="img" src="'+blog.img+'" alt="">'
-							+ '<h3><a class="title" href="welcome/blog?blog_id='+blog.blog_id+'">'+blog.title+'</a></h3>'
+							+ '<h3><a class="title" href="welcome/blog/'+blog.blog_id+'">'+blog.title+'</a></h3>'
 							+ '<span class="author">'+blog.admin_name+'</span>'
 							+ '<p class="des">'+blog.content+'</p>'
 							//+ '<p class="add_time">'+blog.add_time+'</p>'
-							+ '<a class="seemore" href=" welcome/blog?blog_id='+blog.blog_id+'">SEE MORE</a>'
+							+ '<a class="seemore" href=" welcome/blog/'+blog.blog_id+'">SEE MORE</a>'
 							+ '</li>';
 					var $minUl = getMinUl();
 					$minUl.append(html);

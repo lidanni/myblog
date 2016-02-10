@@ -15,14 +15,13 @@ class Admin extends CI_Controller{
         $this->load->view('admin/login');
     }
     public function check_login(){
-        //1.接数据
         $admin_name = $this->input->post('admin_name');
         $admin_pwd = $this->input->post('admin_pwd');
-        //2.查数据
         $row = $this->admin_model->get_by_name_pwd($admin_name, $admin_pwd);
-        //3.跳转
         if($row){
+//          开启一个session
             $this->session->set_userdata('admin',$row);
+
             $result = $this->blog_model->get_all();
             $data = array(
                 'blogs' => $result
@@ -52,9 +51,7 @@ class Admin extends CI_Controller{
         }
     }
     public function update_blog(){
-        //1.接数据
         $blog_id = $this->input->get('blog_id');
-        //2.查数据
         $row = $this->blog_model->get_by_id($blog_id);
         if($row){
             $data = array(
@@ -64,14 +61,13 @@ class Admin extends CI_Controller{
         }
     }
     public function confirm_update(){
-        //1.接数据
         $blog_id = $this->input->post('blog_id');
         $title = $this->input->post('title');
         $content = $this->input->post('content');
         $img = $this->input->post('img');
         $author = $this->input->post('author');
         $add_time = $this->input->post('add_time');
-        //2.查数据
+
         $rows = $this->blog_model->update($blog_id, $title, $content, $img, $author, $add_time);
         if($rows > 0){
             redirect('admin/show_blog');
@@ -166,10 +162,9 @@ class Admin extends CI_Controller{
 
     //logout
     public function logout(){
+//      关闭一个session
         $this->session->unset_userdata('admin');
         redirect('admin/login');
-
-
     }
 
 

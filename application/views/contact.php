@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,7 +47,6 @@
     </div>
 
     <?php include 'footer.php'; ?>
-
 
     <script src="js/require.js" data-main="js/contact.js"></script>
 

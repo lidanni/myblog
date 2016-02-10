@@ -3,16 +3,17 @@
 class Comment_model extends CI_Model
 {
     public function get_all(){
-        return $this -> db ->get('t_comment') -> result();
+        return $this->db->get('t_comment')->result();
     }
 
     public function get_comment_by_blogId($blog_id){
+        $this->db->order_by('add_time','desc');
         return $this->db->get_where('t_comment', array('blog_id' => $blog_id))->result();
     }
 
-    public function save($blog_id, $comment){
+    public function save($blog_id, $comment, $by_name){
         $this->db->insert('t_comment',
-            array('blog_id' => $blog_id, 'comment' => $comment)
+            array('blog_id' => $blog_id, 'comment' => $comment, 'by_name' => $by_name)
         );
         return $this->db->affected_rows();
     }

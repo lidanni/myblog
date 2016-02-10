@@ -1,13 +1,3 @@
-<!--blog评论,需要登录验证,用户信息存在t_admin中,根据t_admin中的
-admin_name,admin_pwd进行验证,验证通过才能将"评论"插入数据库中
-
-有3张表:
-t_admin  用户信息表,用于登录验证,登录成功后进入index页面,
-index页面中点击blog,进入blog页面中,可评论
-t_blog 文件从数据库中查出
-t_comment
-网站又一个添加评论功能
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,30 +36,42 @@ t_comment
 			<p class="article">Article Comment</p>
 			<ul class="blog_comment">
 				<?php
-					foreach($comments as $comment) {
+					foreach($blog->comments as $comment) {
 				?>
-					<li><?php echo $comment->comment; ?><li>
+					<li><?php echo $comment->comment; ?>-------<?php echo $comment->by_name;?><span style="float: right;"><?php echo $comment->add_time;?></span><li>
 				<?php
 					}
 				?>
 			</ul>
 
-			<form action="">
-				<p class="add" >Add Comment</p>
+			<form action="welcome/comment" method="post">
+				<p class="add" >Add New Comment</p>
 				<div class="add-comment">
-					<span>*</span>
-					<textarea class="area"></textarea>
-					<p><input data-id="<?php echo $blog->blog_id;?>" class="submit" type="button" value="submit"></p>
+					<p>
+						<input type="hidden" name="blog_id" value="<?php echo $this->uri->segment(3);?>">
+					</p>
+
+					<p>
+						<span>*</span>
+						<textarea name="comment" class="area"></textarea>
+					</p>
+
+					<p class="yourname">Your name:
+						<span class="necessary">*</span>
+						<input class="by_name" name="by_name" type="text">
+					</p>
+					
+					<input id="submit" class="submit" type="submit" value="submit">
+
 				</div>
 			</form>
+
 		</div>
 	</div>
-
 
 	<?php include 'footer.php'; ?>
 
 	<script src="js/require.js" data-main="js/blog.js"></script>
-
 
 </body>
 </html>
