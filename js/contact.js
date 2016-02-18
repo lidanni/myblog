@@ -22,12 +22,11 @@ require(['jquery','nav','footer'], function() {
                 content: $content.val()
             }, function (res) {//回调函数中的代码是等服务器端通过echo返回结果后再执行的,结果返回给形参res
                 if (res == 'fail') {
-                    $username.css({
-                        border: '1px solid red'
-                    });
-                } else if (res == 'success') {
-                    alert('success!');
-                    concole.log('haha');
+                    alert("请输入完整信息!");
+
+                }
+                else if (res == 'success') {
+                    alert('留言成功!');
                     location.href = 'welcome/contact';
                 }
             });

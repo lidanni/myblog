@@ -44,7 +44,7 @@
 				?>
 			</ul>
 
-			<form action="welcome/comment" method="post">
+			<form id="form" action="welcome/comment" method="post">
 				<p class="add" >Add New Comment</p>
 				<div class="add-comment">
 					<p>
@@ -61,8 +61,7 @@
 						<input class="by_name" name="by_name" type="text">
 					</p>
 					
-					<input id="submit" class="submit" type="submit" value="submit">
-
+					<input type="submit" class="submit" value="submit">
 				</div>
 			</form>
 

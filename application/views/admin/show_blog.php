@@ -32,7 +32,7 @@
             <input id="checkNo" type="button" class="am-btn am-btn-default" value="全不选">
             <input id="checkReverse" type="button" class="am-btn am-btn-default" value="反选">
             <input id="deleteMore" type="button" class="am-btn am-btn-default" value="删除">
-            <input id="add-blog" type="button" class="am-btn am-btn-default" value="添加文章">
+            <input id="add-blog" type="button" class="am-btn am-btn-default" value="新增">
           </div>
         </div>
       </div>
@@ -89,15 +89,18 @@
           </table>
 
           <div class="am-cf">
+            共<?php echo $total_rows; ?>条记录
             <div class="am-fr">
               <ul class="am-pagination">
-                <li class="am-disabled"><a href="">«</a></li>
+                <!--<li class="am-disabled"><a href="#">«</a></li>
                 <li class="am-active"><a href="">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="">5</a></li>
-                <li><a href="">»</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">»</a></li>-->
+                <?php echo $this->pagination->create_links(); ?>
+
               </ul>
             </div>
           </div>

@@ -5,7 +5,6 @@ class Message_model extends CI_Model {
         return $this->db->get('t_message')->result();
     }
 
-
     public function save($username, $email, $content){
          $data = array(
              'username' => $username,
@@ -13,9 +12,7 @@ class Message_model extends CI_Model {
              'content' => $content
          );
         $this->db->insert('t_message', $data);
-
     }
-
 
     public function delete($id){
         $this->db->delete('t_message', array('id' => $id));
@@ -26,6 +23,13 @@ class Message_model extends CI_Model {
         $this->db->query("delete from t_message where id in($str)");
     }
 
+    public function get_total_count(){
+        return $this->db->count_all('t_message');
+    }
 
+    public function get_by_page($limit, $offset){
+        $this->db->limit($limit, $offset);
+        return $this->db->get('t_message')->result();
+    }
 
 }

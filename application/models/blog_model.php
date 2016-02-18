@@ -36,19 +36,23 @@ class Blog_model extends CI_Model {
     }
 
 
-    public function get_by_page($page){
+    /*****************以下两个查询必须同步,如果不同步怎么办*******************/
+    public function get_by_page($limit, $offset){
         $this->db->select('*');
         $this->db->from('t_blog blog');
         $this->db->join('t_admin admin','blog.author=admin.admin_id');
         $this->db->order_by('blog.blog_id','asc');
-        $this->db->limit(6, $page);
+        $this->db->limit($limit, $offset);
         return $this->db->get()->result();
     }
-
 
     public function get_total_count(){
         return $this->db->count_all('t_blog');
     }
+    /**********************************/
+
+
+
 
     public function delete_more_in($str){
         $this->db->query( " delete from t_blog where blog_id in( $str ) " );
@@ -57,16 +61,17 @@ class Blog_model extends CI_Model {
         return $this->db->affected_rows();
     }
 
-    public function save($title,$content,$img,$author,$add_time){
+    public function save($title,$content,$img,$author){
         $this->db->insert('t_blog',array(
             'title' => $title,
             'content' => $content,
             'img' => $img,
-            'author' =>$author,
-            'add_time' => $add_time
+            'author' =>$author
         ));
         return $this->db->affected_rows();
     }
+
+
 
 
 

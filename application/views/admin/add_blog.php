@@ -34,27 +34,11 @@
                     <p>内容:<textarea name="content" style="width: 300px; height: 65px;" ></textarea>
                     </p>
                     <p>文章配图:<input name="img" type="text" value=""></p>
-                    <p>作者:<input name="author" type="text" value=""></p>
-                    <p>添加时间:<input name="add_time" type="text" value=""></p>
+                    <input name="author" type="hidden" value="<?php echo $admin->admin_id;?>">
                     <p>
-                        <input type="submit" value="添加文章">
+                        <input type="submit" value="新增">
                     </p>
                 </form>
-
-                <div class="am-cf">
-                    <div class="am-fr">
-                        <ul class="am-pagination">
-                            <li class="am-disabled"><a href="#">«</a></li>
-                            <li class="am-active"><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">»</a></li>
-                        </ul>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>

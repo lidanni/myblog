@@ -29,7 +29,13 @@ class Comment_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+    public function get_total_count(){
+        return $this->db->count_all('t_comment');
+    }
 
-
+    public function get_by_page($limit, $offset){
+        $this->db->limit($limit, $offset);
+        return $this->db->get('t_comment')->result();
+    }
 
 }

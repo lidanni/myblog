@@ -17,8 +17,9 @@ class Welcome extends CI_Controller{
 	//index页面,显示所有文章
 	public function get_blogs(){          //ajax传参数
 		$page = $this->input->get('page');
-		$offset = ($page-1) * 6;
-		$blogs = $this->blog_model->get_by_page($offset);
+		$limit = 3;
+		$offset = ($page-1) * $limit;
+		$blogs = $this->blog_model->get_by_page($limit, $offset);
 		$totalCount = $this->blog_model->get_total_count();
 		if($blogs && $totalCount){
 			$res = array(
@@ -70,9 +71,9 @@ class Welcome extends CI_Controller{
 	}
 	//contact页面,保存留言信息
 	public function message(){
-		$username = $this->input->post('username');
-		$email = $this->input->post('email');
-		$content = $this->input->post('content');
+		$username = htmlspecialchars($this->input->post('username'));
+		$email = htmlspecialchars($this->input->post('email'));
+		$content = htmlspecialchars($this->input->post('content'));
 		if($username == '' || $email == '' || $content == ''){
 			echo 'fail';
 		}else{

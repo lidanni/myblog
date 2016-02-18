@@ -37,9 +37,48 @@ class Admin extends CI_Controller{
 
     //文章管理
     public function show_blog(){
-        $result = $this->blog_model->get_all();
+        $offset = $this->uri->segment(3);
+        if($offset == ''){
+            $offset = 0;
+        }
+
+        $this->load->library('pagination');//加载库
+
+        $config['base_url'] = 'admin/show_blog';
+        $config['total_rows'] = $this -> blog_model -> get_total_count();
+        $config['per_page'] = 10;
+//      $config['uri_segment'] = 3;//地址栏取第三段
+
+        //以下这段代码放在pagination.php中
+        /*$config['use_page_numbers'] = TRUE;//使用页数
+        $config['first_link'] = '首页';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+
+        $config['last_link'] = '尾页';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+        $config['prev_link'] = '<<';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+
+        $config['next_link'] = '>>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+
+        $config['cur_tag_open'] = '<li class="am-active"><a href="#">';
+        $config['cur_tag_close'] = '</a></li>';
+
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';*/
+
+        $this->pagination->initialize($config);
+
+        $result = $this->blog_model->get_by_page($config['per_page'], $offset);
         $data = array(
-            'blogs' => $result
+            'blogs' => $result,
+            'total_rows' => $config['total_rows']
         );
         $this->load->view('admin/show_blog', $data);
     }
@@ -98,9 +137,8 @@ class Admin extends CI_Controller{
         $content = $this->input->post('content');
         $img = $this->input->post('img');
         $author = $this->input->post('author');
-        $add_time = $this->input->post('add_time');
 
-        $rows = $this->blog_model->save($title,$content,$img,$author,$add_time);
+        $rows = $this->blog_model->save($title,$content,$img,$author);
 
         if($rows > 0){
             redirect('admin/show_blog');
@@ -110,10 +148,26 @@ class Admin extends CI_Controller{
 
     //评论管理
     public function show_comment(){
-        $result = $this->comment_model->get_all();
+
+        $offset = $this->uri->segment(3);
+        if($offset == ''){
+            $offset = 0;
+        }
+
+        $this->load->library('pagination');//加载库
+
+        $config['base_url'] = 'admin/show_comment';
+        $config['total_rows'] = $this -> comment_model -> get_total_count();
+        $config['per_page'] = 10;
+
+        $this->pagination->initialize($config);
+
+        $result = $this->comment_model->get_by_page($config['per_page'], $offset);
+
         if($result){
             $data = array(
-                'comments' => $result
+                'comments' => $result,
+                'total_rows' => $config['total_rows']
             );
             $this->load->view('admin/show_comment', $data);
         }
@@ -136,10 +190,26 @@ class Admin extends CI_Controller{
 
     //留言管理
     public function show_message(){
-        $result = $this->message_model->get_all();
+
+        $offset = $this->uri->segment(3);
+        if($offset == ''){
+            $offset = 0;
+        }
+
+        $this->load->library('pagination');//加载库
+
+        $config['base_url'] = 'admin/show_message';
+        $config['total_rows'] = $this -> message_model -> get_total_count();
+        $config['per_page'] = 10;
+
+        $this->pagination->initialize($config);
+
+        $result = $this->message_model->get_by_page($config['per_page'], $offset);
+
         if($result){
             $data = array(
-                'messages' => $result
+                'messages' => $result,
+                'total_rows' => $config['total_rows']
             );
             $this->load->view('admin/show_message', $data);
         }
