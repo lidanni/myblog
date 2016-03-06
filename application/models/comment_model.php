@@ -23,7 +23,6 @@ class Comment_model extends CI_Model
         return $this->db->affected_rows();
     }
 
-
     public function delete_more_in($str){
         $this->db->query("delete from t_comment where comment_id in($str)");
         return $this->db->affected_rows();
@@ -35,6 +34,7 @@ class Comment_model extends CI_Model
 
     public function get_by_page($limit, $offset){
         $this->db->limit($limit, $offset);
+        $this->db->order_by('t_comment.add_time','desc');
         return $this->db->get('t_comment')->result();
     }
 

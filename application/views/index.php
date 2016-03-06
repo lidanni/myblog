@@ -13,11 +13,19 @@
 
 	<?php include 'nav.php'; ?>
 
+	<div id="top-bar">
+		<div class="container">
+			<!--<p>
+				Welcome to my blog, I will get you a suripise !
+			</p>-->
+		</div>
+	</div>
+
 
 	<div id="header" class="index_header"></di>
-		<img src="img/bg2.jpg" class="header-bg" alt="">
+<!--		<img src="img/bg2.jpg" class="header-bg" alt="">-->
 		<div class="myphoto">
-			<img src="img/me.jpg" class="me" alt="">
+<!--			<img src="img/me.jpg" class="me" alt="">-->
 		</div>
 		<div class="introduction">
 			<h1>Li Danni</h1>

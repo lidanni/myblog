@@ -1,5 +1,6 @@
 require(['jquery','nav','footer'], function() {
     $(function () {
+
         /**************************  保存留言信息  ***************************/
         $('#submit').on('click', function () {
             var $username = $('[name=username]');
@@ -9,7 +10,6 @@ require(['jquery','nav','footer'], function() {
              alert('请输入用户名!');
              $username.focus();
              }*/
-
             /*post函数有4个参数,
              1.地址ur,
              2.数据data,
@@ -23,11 +23,9 @@ require(['jquery','nav','footer'], function() {
             }, function (res) {//回调函数中的代码是等服务器端通过echo返回结果后再执行的,结果返回给形参res
                 if (res == 'fail') {
                     alert("请输入完整信息!");
-
                 }
-                else if (res == 'success') {
-                    alert('留言成功!');
-                    location.href = 'welcome/contact';
+                else{
+                    alert("留言成功!");
                 }
             });
 

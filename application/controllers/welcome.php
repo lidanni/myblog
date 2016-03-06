@@ -17,8 +17,8 @@ class Welcome extends CI_Controller{
 	//index页面,显示所有文章
 	public function get_blogs(){          //ajax传参数
 		$page = $this->input->get('page');
-		$limit = 3;
-		$offset = ($page-1) * $limit;
+		$limit = 6;
+		$offset = ($page-1) * 6;
 		$blogs = $this->blog_model->get_by_page($limit, $offset);
 		$totalCount = $this->blog_model->get_total_count();
 		if($blogs && $totalCount){

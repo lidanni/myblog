@@ -27,18 +27,66 @@
 
         <div class="am-g">
             <div class="am-u-sm-12">
+                <div class="admin-content">
+                    <div class="am-tabs am-margin" data-am-tabs>
+                        <ul class="am-tabs-nav am-nav am-nav-tabs">
+                            <li><a href="#tab2">详细描述</a></li>
+                        </ul>
+                        <div class="am-tabs-bd">
+                           <div class="am-tab-panel am-fade" id="tab2">
 
-                <form action="admin/add_blog" method="post">
-                    添加文章信息:
-                    <p>标题:<input name="title" type="text" value=""></p>
-                    <p>内容:<textarea name="content" style="width: 300px; height: 65px;" ></textarea>
-                    </p>
-                    <p>文章配图:<input name="img" type="text" value=""></p>
-                    <input name="author" type="hidden" value="<?php echo $admin->admin_id;?>">
-                    <p>
-                        <input type="submit" value="新增">
-                    </p>
-                </form>
+                                <form class="am-form" action="admin/add_blog" method="post" enctype="multipart/form-data">
+
+                                    <div class="am-g am-margin-top">
+                                        <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                                            文章标题
+                                        </div>
+                                        <div class="am-u-sm-8 am-u-md-4">
+                                            <input name="title" type="text" class="am-input-sm">
+                                        </div>
+                                        <div class="am-hide-sm-only am-u-md-6">*必填，不可重复</div>
+                                    </div>
+
+
+                                    <div class="am-g am-margin-top">
+                                        <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                                            文章主图
+                                        </div>
+                                        <div class="am-u-sm-8 am-u-md-4">
+                                            <input type="file" class="am-input-sm" name="img">
+                                        </div>
+                                        <div class="am-u-sm-12 am-u-md-6">图片不能超过3M</div>
+                                    </div>
+
+
+                                    <div class="am-g am-margin-top-sm">
+                                        <div class="am-u-sm-12 am-u-md-2 am-text-right admin-form-text">
+                                            内容描述
+                                        </div>
+                                        <div class="am-u-sm-12 am-u-md-10">
+                                            <textarea name="content" rows="10" placeholder="请使用富文本编辑插件"></textarea>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="am-g am-margin-top">
+                                        <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+                                            <input name="author" type="hidden" value="<?php echo $admin->admin_id;?>" >
+                                        </div>
+                                    </div>
+
+
+                                    <div class="am-margin">
+                                        <button type="submit" class="am-btn am-btn-primary am-btn-xs">提交保存</button>
+                                    </div>
+
+                                </form>
+
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

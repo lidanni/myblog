@@ -55,9 +55,9 @@
                     <tr>
                         <th class="table-check"><input type="checkbox" /></th>
                         <th class="table-id">ID</th>
-                        <th style="text-indent: -10px;" class="table-title">留言人姓名</th>
-                        <th style="text-indent: 10px;" class="table-author am-hide-sm-only">联系方式</th>
                         <th style="text-indent: -10px;" class="table-date am-hide-sm-only">留言内容</th>
+                        <th style="text-indent: -10px;" class="table-title">留言人姓名</th>
+                        <th style="text-indent: -5px;" class="table-author am-hide-sm-only">联系方式</th>
                         <th style="text-indent: 50px;" class="table-set">留言时间</th>
                         <th style="text-indent: 7px;" class="table-set">操作</th>
                     </tr>
@@ -69,9 +69,9 @@
                         <tr>
                             <td><input type="checkbox" name="list" value="<?php echo $message->id;?>"></td>
                             <td><?php echo $message->id;?></td>
+                            <td><?php echo $message->content; ?></td>
                             <td><?php echo $message->username; ?></td>
                             <td><?php echo $message->email; ?></td>
-                            <td><?php echo $message->content; ?></td>
                             <td><?php echo $message->time; ?></td>
                             <td>
                                 <div>

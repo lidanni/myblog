@@ -105,9 +105,8 @@ class Admin extends CI_Controller{
         $content = $this->input->post('content');
         $img = $this->input->post('img');
         $author = $this->input->post('author');
-        $add_time = $this->input->post('add_time');
 
-        $rows = $this->blog_model->update($blog_id, $title, $content, $img, $author, $add_time);
+        $rows = $this->blog_model->update($blog_id, $title, $content, $img, $author);
         if($rows > 0){
             redirect('admin/show_blog');
         }
@@ -132,17 +131,32 @@ class Admin extends CI_Controller{
     public function add_blog_page(){
         $this->load->view('admin/add_blog');
     }
+
     public function add_blog(){
-        $title = $this->input->post('title');
-        $content = $this->input->post('content');
-        $img = $this->input->post('img');
+        $title = htmlspecialchars($this->input->post('title'));
+        $content = htmlspecialchars($this->input->post('content'));
         $author = $this->input->post('author');
 
-        $rows = $this->blog_model->save($title,$content,$img,$author);
+        /*******************图片上传*************************/
+        $config['upload_path'] = './uploads/';//与根目录中所建权限为777的文件名保持一致
+        $config['allowed_types'] = 'gif|jpg|png';//允许的文件类型
+        $config['max_size'] = '3072';//这里是以k为单位,1M=1024K
+        $config['file_name'] = date('YmdHis').'_'.rand(10000,99999);//给上传上来的图片重新命名,保证不能重复
+//        $config['width'] = '315';
+//        $config['height'] = '197';
 
-        if($rows > 0){
-            redirect('admin/show_blog');
+        $this->load->library('upload', $config);
+        $this->upload->do_upload('img');
+        $upload_data = $this->upload->data();
+
+        if($upload_data['file_size'] > 0){
+            $img_url = 'uploads/'.$upload_data['file_name'];
+            $rows = $this->blog_model->save($title,$content,$img_url,$author);
+            if($rows > 0){
+                redirect('admin/show_blog');
+            }
         }
+        /*************************************************/
     }
 
 
@@ -236,14 +250,6 @@ class Admin extends CI_Controller{
         $this->session->unset_userdata('admin');
         redirect('admin/login');
     }
-
-
-
-
-
-
-
-
 
 }
 

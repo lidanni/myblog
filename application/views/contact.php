@@ -21,6 +21,7 @@
 
     <div id="contact">
         <div class="container">
+
             <div class="left">
                 <p>
                     <label for="name">Name:</label><br/>
@@ -43,6 +44,7 @@
                 <div>18346067490</div>
                 <a href="">358947326@qq.com</a>
             </div>
+
         </div>
     </div>
 

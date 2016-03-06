@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = '127.0.0.1';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'myblog';//自己建的数据库的名字
+$db['default']['hostname'] = 'qdm190234658.my3w.com';
+$db['default']['username'] = 'qdm190234658';
+$db['default']['password'] = 'idn19930212';
+$db['default']['database'] = 'qdm190234658_db';//数据库的名字
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

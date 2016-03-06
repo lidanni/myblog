@@ -56,6 +56,7 @@
                 <tr>
                   <th class="table-check"><input type="checkbox" /></th>
                   <th class="table-id">ID</th>
+                  <th style="text-indent: 10px;" class="table-title">缩略图</th>
                   <th style="text-indent: 10px;" class="table-title">标题</th>
                   <th style="text-indent: 50px;" class="table-author am-hide-sm-only">配图</th>
                   <th style="text-indent: -5px;" class="table-date am-hide-sm-only">作者</th>
@@ -70,7 +71,8 @@
                   <tr>
                     <td><input type="checkbox" name="list" value="<?php echo $blog->blog_id;?>"></td>
                     <td><?php echo $blog->blog_id; ?></td>
-                    <td> <a    href="admin/blog_content?blog_id=<?php echo $blog->blog_id;?>"> <?php echo $blog->title;?> </a></td>
+                    <td><img width="100" height="70" src="<?php echo $blog->img; ?>"/></td>
+                    <td> <a href="admin/blog_content?blog_id=<?php echo $blog->blog_id;?>"> <?php echo $blog->title;?> </a></td>
                     <td><?php echo $blog->img; ?></td>
                     <td><?php echo $blog->author; ?></td>
                     <td><?php echo $blog->add_time; ?></td>

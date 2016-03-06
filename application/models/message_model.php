@@ -29,6 +29,7 @@ class Message_model extends CI_Model {
 
     public function get_by_page($limit, $offset){
         $this->db->limit($limit, $offset);
+        $this->db->order_by('t_message.time','desc');
         return $this->db->get('t_message')->result();
     }
 

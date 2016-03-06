@@ -22,13 +22,12 @@ class Blog_model extends CI_Model {
     }
 
     
-    public function update($blog_id, $title, $content, $img, $author, $add_time){
+    public function update($blog_id, $title, $content, $img, $author){
         $data = array(
             'title' => $title,
             'content' => $content,
             'img' => $img,
-            'author' => $author,
-            'add_time' => $add_time
+            'author' => $author
         );
         $this->db->where('blog_id', $blog_id);
         $this->db->update('t_blog', $data);
@@ -41,7 +40,8 @@ class Blog_model extends CI_Model {
         $this->db->select('*');
         $this->db->from('t_blog blog');
         $this->db->join('t_admin admin','blog.author=admin.admin_id');
-        $this->db->order_by('blog.blog_id','asc');
+        $this->db->order_by('blog.add_time','desc');
+
         $this->db->limit($limit, $offset);
         return $this->db->get()->result();
     }
@@ -61,11 +61,11 @@ class Blog_model extends CI_Model {
         return $this->db->affected_rows();
     }
 
-    public function save($title,$content,$img,$author){
+    public function save($title,$content,$img_url,$author){
         $this->db->insert('t_blog',array(
             'title' => $title,
             'content' => $content,
-            'img' => $img,
+            'img' => $img_url,
             'author' =>$author
         ));
         return $this->db->affected_rows();
