@@ -29,14 +29,14 @@ require(['jquery','nav','footer'], function() {
                 }
             });
 
-           /* //ajax方式监测页面是否已存在
-            $('[name=username]').on('blur', function () {
-                $.get('welcome/check_name', {uname: this.value}, function (res) {
-                    if (res == 'fail') {
-                        alert('username exists!');
-                    }
-                });
-            });*/
+            /* //ajax方式监测页面是否已存在
+             $('[name=username]').on('blur', function () {
+             $.get('welcome/check_name', {uname: this.value}, function (res) {
+             if (res == 'fail') {
+             alert('username exists!');
+             }
+             });
+             });*/
         });
         /**************************  添加留言信息  ***************************/
 

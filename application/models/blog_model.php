@@ -21,7 +21,7 @@ class Blog_model extends CI_Model {
         return $this->db->affected_rows();
     }
 
-    
+
     public function update($blog_id, $title, $content, $img, $author){
         $data = array(
             'title' => $title,

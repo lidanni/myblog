@@ -23,7 +23,7 @@
 	margin-top: 65px;
 }
 #aboutme .about-left{
-	width: 570px;
+	width: 700px;
 	height: 382px;
 	float: left;
 	margin-left: 20px;
@@ -38,10 +38,10 @@
 }
 #aboutme .about-left p{
 	font-size: 14px;
-    line-height: 32px;
+	line-height: 32px;
 	text-transform: uppercase;
 	color: #7c7c7c;
-    margin: 16px 10px 0 0;
+	margin: 16px 10px 0 0;
 }
 #aboutme .about-left span{
 	display: block;
@@ -49,11 +49,11 @@
 	color: #595959;
 }
 #aboutme .about-right img{
-	width: 540px;
+	width: 310px;
 	height: 402px;
 	display: block;
 	float: left;
-	margin-left: 10px;
+	margin-left: 100px;
 }
 /*************aboutme结束************/
 

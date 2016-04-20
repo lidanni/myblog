@@ -55,10 +55,8 @@
                     <tr>
                         <th class="table-check"><input type="checkbox" /></th>
                         <th class="table-id">ID</th>
-                        <th style="text-indent: -10px;" class="table-author am-hide-sm-only">文章ID</th>
                         <th style="text-indent: 10px;" class="table-title">评论内容</th>
-                        <th style="text-indent: -12px;" class="table-author am-hide-sm-only">评论人姓名</th>
-                        <th style="text-indent: 50px;" class="table-author am-hide-sm-only">时间</th>
+                        <th style="text-indent: -10px;"  class="table-author am-hide-sm-only">文章ID</th>
                         <th style="text-indent: 6px;" class="table-author am-hide-sm-only">操作</th>
 
                     </tr>
@@ -70,11 +68,8 @@
                         <tr>
                             <td><input type="checkbox" name="list" value="<?php echo $comment->comment_id;?>"></td>
                             <td><?php echo $comment->comment_id;?></td>
-                            <td><?php echo $comment->blog_id; ?></td>
                             <td><?php echo $comment->comment; ?></td>
-                            <td><?php echo $comment->by_name; ?></td>
-                            <td><?php echo $comment->add_time; ?></td>
-
+                            <td><?php echo $comment->blog_id; ?></td>
                             <td>
                                 <div>
                                     <input class="delete" data-id="<?php echo $comment->comment_id; ?>" type="button" value="删除">
@@ -92,7 +87,7 @@
                     共<?php echo $total_rows; ?>条记录
                     <div class="am-fr">
                         <ul class="am-pagination">
-                           <?php echo $this->pagination->create_links(); ?>
+                            <?php echo $this->pagination->create_links(); ?>
                         </ul>
                     </div>
                 </div>

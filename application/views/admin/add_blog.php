@@ -33,7 +33,7 @@
                             <li><a href="#tab2">详细描述</a></li>
                         </ul>
                         <div class="am-tabs-bd">
-                           <div class="am-tab-panel am-fade" id="tab2">
+                            <div class="am-tab-panel am-fade" id="tab2">
 
                                 <form class="am-form" action="admin/add_blog" method="post" enctype="multipart/form-data">
 
@@ -82,7 +82,7 @@
 
                                 </form>
 
-                        </div>
+                            </div>
                         </div>
                     </div>
 

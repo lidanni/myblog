@@ -3,7 +3,7 @@ define(['jquery'], function(){
 		open: function(options){
 			var that = this;
 			this.$bigMask = $('<div class="bigmask"></div>').appendTo(document.body),
-			this.$div =	$('<div class="lightbox-img"><div class="loading">loading</div><span class="close">X</span></div>');
+					this.$div =	$('<div class="lightbox-img"><div class="loading">loading</div><span class="close">X</span></div>');
 
 			this.$bigMask.show().animate({        //第二个参数:指定动画运行多长时间，默认值400
 				opacity: 0.83
@@ -49,23 +49,23 @@ define(['jquery'], function(){
 
 			//给close按钮注册单击事件,关闭
 			/*objects.obj1.on('click', function(){
-				$bigMask.animate({
-					opacity: 0
-				}).hide(200);
-				$div.animate({
-					opacity: 0
-				}).hide(200);
-			});
+			 $bigMask.animate({
+			 opacity: 0
+			 }).hide(200);
+			 $div.animate({
+			 opacity: 0
+			 }).hide(200);
+			 });
 
-			//给遮罩层注册单击事件,关闭
-			objects.obj2.on('click', function(){
-				$bigMask.animate({
-					opacity: 0
-				}).hide(200);
-				$div.animate({
-					opacity: 0
-				}).hide(200);
-			});*/
+			 //给遮罩层注册单击事件,关闭
+			 objects.obj2.on('click', function(){
+			 $bigMask.animate({
+			 opacity: 0
+			 }).hide(200);
+			 $div.animate({
+			 opacity: 0
+			 }).hide(200);
+			 });*/
 		}
 	}
 

@@ -1,8 +1,8 @@
 <?php
-    $admin = $this -> session -> userdata('admin');
-    if(!$admin){
-        redirect('admin/login');
-    }
+$admin = $this -> session -> userdata('admin');
+if(!$admin){
+    redirect('admin/login');
+}
 ?>
 
 <header class="am-topbar admin-header">

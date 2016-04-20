@@ -6,11 +6,11 @@ class Message_model extends CI_Model {
     }
 
     public function save($username, $email, $content){
-         $data = array(
-             'username' => $username,
-             'email' => $email,
-             'content' => $content
-         );
+        $data = array(
+            'username' => $username,
+            'email' => $email,
+            'content' => $content
+        );
         $this->db->insert('t_message', $data);
     }
 

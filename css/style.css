@@ -36,11 +36,11 @@ body{
   /*父元素透明，子元素透明*/
   width: 100%;
   height: 100%;
-  background: #494949;
+  background: rgb(82, 87, 89);
   opacity: 0.39;
   filter: alpha(opacity=39);
   /*css3语法，IE8不兼容*/
-  /*background: rgba(82, 87, 89, 0.39);*/  
+  /*background: rgba(82, 87, 89, 0.39);*/
 }
 #nav .nav-menu-ul{
   width: 694px;
@@ -67,7 +67,7 @@ body{
   width: 35px;
   height: 35px;
   background: url(../img/close2.png) no-repeat;
-  cursor: pointer; 
+  cursor: pointer;
   position: absolute;/*相对于nav*/
   right: 94px;
   top: 47%;
@@ -78,7 +78,6 @@ body{
 
 /***************header开始*************/
 #header.index_header{
-  background: url(../img/gray-bg.gif) repeat-x bottom #dbdbdb;
   height: 830px;
   overflow: hidden;
 }

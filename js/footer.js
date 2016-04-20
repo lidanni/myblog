@@ -1,19 +1,24 @@
 require(['jquery'], function() {
     $(function () {
-        $icon = $('.to-top');
+        var $icon = $('.to-top');
+
         $(window).on('scroll', function () {
-            var iScrollTop = $(window).scrollTop(),
-                iWinHeight = $(window).height();
-            if (iScrollTop > iWinHeight) {
-                $icon.show();
+            if($(window).scrollTop()>300){
+                $icon.fadeIn(500);
+            }else{
+                $icon.fadeOut(500);
             }
-            else {
-                $icon.hide();
-            }
+            //alert("haha");
         });
 
-        $icon.on('click', function () {
-            //    此功能还未完善
+        $icon.on('click', function(){
+            var timer = setInterval(function(){
+                $(window).scrollTop($(window).scrollTop()-20);
+                if($(window).scrollTop() <= 0){
+                    clearInterval(timer);
+                }
+            },3);
         });
+
     });
 });
